@@ -1,0 +1,14 @@
+[TraceId: ] 2025-07-14 12:09:55.089 [main] INFO  cn.hjblogs.hjblogs.web.HjblogsWebApplication - Starting HjblogsWebApplication using Java 1.8.0_431 on PC-KHORTSFVARQN with PID 10956 (D:\my-project\hjblogs\hjblogs-springboot\hjblogs-web\target\classes started by ADMIN in D:\my-project\hjblogs\hjblogs-springboot)
+[TraceId: ] 2025-07-14 12:09:55.090 [main] INFO  cn.hjblogs.hjblogs.web.HjblogsWebApplication - The following profiles are active: prod
+[TraceId: ] 2025-07-14 12:09:55.444 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[TraceId: ] 2025-07-14 12:09:55.447 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[TraceId: ] 2025-07-14 12:09:55.447 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[TraceId: ] 2025-07-14 12:09:55.471 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[TraceId: ] 2025-07-14 12:09:55.471 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 364 ms
+[TraceId: ] 2025-07-14 12:09:55.609 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[TraceId: ] 2025-07-14 12:09:55.613 [main] INFO  cn.hjblogs.hjblogs.web.HjblogsWebApplication - Started HjblogsWebApplication in 0.699 seconds (JVM running for 0.947)
+[TraceId: ] 2025-07-14 12:10:06.579 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[TraceId: ] 2025-07-14 12:10:06.579 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[TraceId: ] 2025-07-14 12:10:06.579 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+[TraceId: b8c2a89a-8bbe-4a3d-a21c-62a8633bbc50] 2025-07-14 12:10:06.638 [http-nio-8080-exec-2] INFO  c.h.hjblogs.common.aspect.ApiOperationLogAspect - ====== 请求开始: [测试接口], 入参: {"username":"admin","sex":1}, 请求类: TestController, 请求方法: test =================================== 
+[TraceId: b8c2a89a-8bbe-4a3d-a21c-62a8633bbc50] 2025-07-14 12:10:06.642 [http-nio-8080-exec-2] INFO  c.h.hjblogs.common.aspect.ApiOperationLogAspect - ====== 请求结束: [测试接口], 耗时: 10ms, 出参: {"username":"admin","sex":1} =================================== 
