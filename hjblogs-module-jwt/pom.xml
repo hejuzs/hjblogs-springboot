@@ -11,26 +11,13 @@
     </parent>
 
 
-
     <groupId>cn.hjblogs</groupId>
-    <artifactId>hjblogs-model-admin</artifactId>
-    <name>hjblogs-model-admin</name>
-    <description>hjblogs-model-admin(负责管理后台相关功能)</description>
-
+    <artifactId>hjblogs-module-jwt</artifactId>
+    <name>hjblogs-module-jwt</name>
+    <description>hjblogs-module-jwt (JWT 模块，管理用户认证、鉴权)</description>
 
 
     <dependencies>
-        <dependency>
-            <groupId>cn.hjblogs</groupId>
-            <artifactId>hjblogs-model-common</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hjblogs</groupId>
-            <artifactId>hjblogs-module-jwt</artifactId>
-        </dependency>
-
-
         <!-- 免写冗余的 Java 样板式代码 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -46,11 +33,6 @@
         </dependency>
 
 
-        <!-- knife4j -->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
-        </dependency>
 
 
         <!-- Spring Security -->
@@ -58,7 +40,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
 
     </dependencies>
 

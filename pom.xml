@@ -39,6 +39,9 @@
         <module>hjblogs-model-admin</module>
         <!-- 通用模块 -->
         <module>hjblogs-model-common</module>
+
+        <!-- JWT 模块 -->
+        <module>hjblogs-module-jwt</module>
     </modules>
 
 
@@ -95,6 +98,14 @@
                 <artifactId>hjblogs-model-common</artifactId>
                 <version>${revision}</version>
             </dependency>
+
+            <dependency>
+                <groupId>cn.hjblogs</groupId>
+                <artifactId>hjblogs-module-jwt</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+
 
             <!-- 常用工具库 -->
             <dependency>
