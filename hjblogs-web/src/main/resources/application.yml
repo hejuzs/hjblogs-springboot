@@ -2,5 +2,10 @@ spring:
   profiles:
     # 默认激活 dev 环境   dev prod
     active: dev
+jwt:
+  # 签发人
+  issuer: juhe
+  # 秘钥
+  secret: cVKQ4ifhJpqnhzJE4d4CVDuaBH7wbOVeoiuqTnqrNZjjoElXPmivU6ctuHIjMAqFgPxIGaPAz/m8WjTrpNaRJA==
 
 
