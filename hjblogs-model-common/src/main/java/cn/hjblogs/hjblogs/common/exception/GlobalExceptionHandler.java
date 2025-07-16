@@ -3,6 +3,7 @@ package cn.hjblogs.hjblogs.common.exception;
 import cn.hjblogs.hjblogs.common.enums.ResponseCodeEnum;
 import cn.hjblogs.hjblogs.common.utils.Response;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -83,6 +84,13 @@ public class GlobalExceptionHandler {
         log.warn("{} request error, errorCode: {}, errorMessage: {}", request.getRequestURI(), errorCode, errorMessage);
 
         return Response.fail(errorCode, errorMessage);
+    }
+
+    @ExceptionHandler({ AccessDeniedException.class })
+    public void throwAccessDeniedException(AccessDeniedException e) throws AccessDeniedException {
+        // 捕获到鉴权失败异常，主动抛出，交给 RestAccessDeniedHandler 去处理
+        log.info("============= 捕获到 AccessDeniedException");
+        throw e;
     }
 
 
