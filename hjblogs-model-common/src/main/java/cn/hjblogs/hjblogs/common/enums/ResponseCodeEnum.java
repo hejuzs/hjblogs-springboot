@@ -35,6 +35,7 @@ public enum ResponseCodeEnum implements BaseExceptionInterface {
     // 文章分类表相关异常
     CATEGORY_NAME_IS_EXISTED("20005", "该分类已存在，请勿重复添加！"),
 
+    TAG_NOT_EXISTED("20007", "该标签不存在！"),
     ;
 
     // 异常码
