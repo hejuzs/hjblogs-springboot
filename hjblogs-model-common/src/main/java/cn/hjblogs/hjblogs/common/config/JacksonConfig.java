@@ -35,6 +35,7 @@ public class JacksonConfig {
         // 忽略未知字段（前端有传入某个字段，但是后端未定义接受该字段值，则一律忽略掉）
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+
         // JavaTimeModule 用于指定序列化和反序列化规则
         JavaTimeModule javaTimeModule = new JavaTimeModule();
 

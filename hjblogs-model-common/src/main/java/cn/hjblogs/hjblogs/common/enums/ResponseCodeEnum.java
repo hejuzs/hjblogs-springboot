@@ -29,7 +29,12 @@ public enum ResponseCodeEnum implements BaseExceptionInterface {
 
     PARAM_NOT_VALID("10001", "参数错误"),
 
+
     USERNAME_NOT_FOUND("20003", "该用户不存在"),
+
+    // 文章分类表相关异常
+    CATEGORY_NAME_IS_EXISTED("20005", "该分类已存在，请勿重复添加！"),
+
     ;
 
     // 异常码
