@@ -2,6 +2,7 @@ package cn.hjblogs.hjblogs.web.service;
 
 import cn.hjblogs.hjblogs.common.utils.Response;
 import cn.hjblogs.hjblogs.web.model.vo.article.FindIndexArticlePageListReqVO;
+import cn.hjblogs.hjblogs.web.model.vo.category.FindCategoryArticlePageListReqVO;
 
 /**
  * @author JUHE

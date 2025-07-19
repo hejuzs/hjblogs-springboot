@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class FindIndexArticlePageListRspVO {
     private Long id;
     private String cover;
     private String title;
-    private LocalDateTime createTime;
+    private LocalDate createDate;
     private String summary;
     /**
      * 文章分类
@@ -34,4 +35,5 @@ public class FindIndexArticlePageListRspVO {
      */
     private List<FindTagListRspVO> tags;
 }
+
 
