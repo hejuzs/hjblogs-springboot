@@ -1,6 +1,7 @@
 package cn.hjblogs.hjblogs.web.service;
 
 import cn.hjblogs.hjblogs.common.utils.Response;
+import cn.hjblogs.hjblogs.web.model.vo.article.FindArticleDetailReqVO;
 import cn.hjblogs.hjblogs.web.model.vo.article.FindIndexArticlePageListReqVO;
 import cn.hjblogs.hjblogs.web.model.vo.category.FindCategoryArticlePageListReqVO;
 
@@ -15,5 +16,13 @@ public interface ArticleService {
      * @return
      */
     Response findArticlePageList(FindIndexArticlePageListReqVO findIndexArticlePageListReqVO);
+
+
+    /**
+     * 获取文章详情
+     * @param findArticleDetailReqVO
+     * @return
+     */
+    Response findArticleDetail(FindArticleDetailReqVO findArticleDetailReqVO);
 }
 
