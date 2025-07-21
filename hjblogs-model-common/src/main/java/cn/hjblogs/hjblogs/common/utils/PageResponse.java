@@ -52,5 +52,19 @@ public class PageResponse<T> extends Response<List<T>> {
     }
 
 
+    public static <T> PageResponse<T> success(long total, long current, long size, List<T> data) {
+        PageResponse<T> response = new PageResponse<>();
+        response.setSuccess(true);
+        response.setCurrent(current);
+        response.setSize(size);
+        // 计算总页数
+        int pages = (int) Math.ceil((double) total / size);
+        response.setPages(pages);
+        response.setTotal(total);
+        response.setData(data);
+        return response;
+    }
+
+
 }
 

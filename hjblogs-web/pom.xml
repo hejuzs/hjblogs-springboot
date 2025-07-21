@@ -28,6 +28,11 @@
             <artifactId>hjblogs-model-common</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hjblogs</groupId>
+            <artifactId>hjblogs-module-search</artifactId>
+        </dependency>
+
 
 
         <!-- Web 依赖 -->

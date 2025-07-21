@@ -42,6 +42,8 @@
 
         <!-- JWT 模块 -->
         <module>hjblogs-module-jwt</module>
+        <!-- 站内搜索模块 -->
+        <module>hjblogs-module-search</module>
     </modules>
 
 
@@ -78,6 +80,10 @@
 
         <commonmark.version>0.20.0</commonmark.version>
 
+        <lucene.version>8.11.1</lucene.version>
+
+        <commons-io.version>2.11.0</commons-io.version>
+
     </properties>
 
 
@@ -95,11 +101,6 @@
                 <artifactId>hjblogs-model-admin</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <dependency>
-                <groupId>cn.hjblogs</groupId>
-                <artifactId>hjblogs-model-admin</artifactId>
-                <version>${revision}</version>
-            </dependency>
 
             <dependency>
                 <groupId>cn.hjblogs</groupId>
@@ -110,6 +111,12 @@
             <dependency>
                 <groupId>cn.hjblogs</groupId>
                 <artifactId>hjblogs-module-jwt</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hjblogs</groupId>
+                <artifactId>hjblogs-module-search</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -226,6 +233,42 @@
                 <groupId>org.commonmark</groupId>
                 <artifactId>commonmark-ext-task-list-items</artifactId>
                 <version>${commonmark.version}</version>
+            </dependency>
+
+
+            <!-- lucene 全文检索引擎 -->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+
+            <!-- 中文分词 -->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-analyzers-smartcn</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+
+            <!-- 关键词高亮 -->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-highlighter</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+
+            <!-- 查询解析器 -->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-queryparser</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+
+            <!-- 工具包 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
 
 
