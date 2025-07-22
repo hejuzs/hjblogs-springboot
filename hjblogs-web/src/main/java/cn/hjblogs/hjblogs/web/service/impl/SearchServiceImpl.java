@@ -48,17 +48,18 @@ public class SearchServiceImpl implements SearchService {
         int size = Math.toIntExact(searchArticlePageListReqVO.getSize());
 
         // 文章索引存放目录
-        String articleIndexDir = luceneProperties.getIndexDir() + File.separator + ArticleIndex.NAME;
+        // String articleIndexDir = luceneProperties.getIndexDir() + File.separator + ArticleIndex.NAME;
+
         // 查询关键词
         String word = searchArticlePageListReqVO.getWord();
 
         // 想要搜索的文档字段（这里指定对文章标题、摘要进行检索，任何一个字段包含该关键词，都会被搜索到）
         String[] columns = {ArticleIndex.COLUMN_TITLE, ArticleIndex.COLUMN_SUMMARY};
         // 查询总记录数
-        long total = luceneHelper.searchTotal(articleIndexDir, word, columns);
+        long total = luceneHelper.searchTotal(ArticleIndex.NAME, word, columns);
 
         // 执行搜索（分页查询）
-        List<Document> documents = luceneHelper.search(articleIndexDir, word, columns, current, size);
+        List<Document> documents = luceneHelper.search(ArticleIndex.NAME, word, columns, current, size);
 
         // 若未查询到相关文档，只接 return
         if (CollectionUtils.isEmpty(documents)) {

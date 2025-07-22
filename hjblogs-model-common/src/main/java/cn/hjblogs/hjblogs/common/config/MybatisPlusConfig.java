@@ -34,7 +34,4 @@ public class MybatisPlusConfig {
     public InsertBatchSqlInjector insertBatchSqlInjector() {
         return new InsertBatchSqlInjector();
     }
-
-
-
 }

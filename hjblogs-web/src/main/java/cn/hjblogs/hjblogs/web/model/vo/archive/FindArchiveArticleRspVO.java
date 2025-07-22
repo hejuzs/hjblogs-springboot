@@ -29,5 +29,6 @@ public class FindArchiveArticleRspVO {
      * 发布的月份（此字段不需要展示在前端，主要用于按月份分组使用）
      */
     private YearMonth createMonth;
+
 }
 

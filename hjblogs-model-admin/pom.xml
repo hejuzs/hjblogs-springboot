@@ -30,6 +30,11 @@
             <artifactId>hjblogs-module-jwt</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hjblogs</groupId>
+            <artifactId>hjblogs-module-search</artifactId>
+        </dependency>
+
 
         <!-- 免写冗余的 Java 样板式代码 -->
         <dependency>

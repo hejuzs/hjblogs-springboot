@@ -1,4 +1,4 @@
-package cn.hjblogs.hjblogs.admin.event.subscriber;
+package cn.hjblogs.hjblogs.admin.model.vo.dashboard;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;

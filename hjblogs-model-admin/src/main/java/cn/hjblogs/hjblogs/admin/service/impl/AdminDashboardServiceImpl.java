@@ -1,6 +1,6 @@
 package cn.hjblogs.hjblogs.admin.service.impl;
 
-import cn.hjblogs.hjblogs.admin.event.subscriber.FindDashboardPVStatisticsInfoRspVO;
+import cn.hjblogs.hjblogs.admin.model.vo.dashboard.FindDashboardPVStatisticsInfoRspVO;
 import cn.hjblogs.hjblogs.admin.model.vo.dashboard.FindDashboardStatisticsInfoRspVO;
 import cn.hjblogs.hjblogs.admin.service.AdminDashboardService;
 import cn.hjblogs.hjblogs.common.constant.Constants;
