@@ -59,6 +59,7 @@ public class TagServiceImpl implements TagService {
                     .map(tagDO -> FindTagListRspVO.builder()
                             .id(tagDO.getId())
                             .name(tagDO.getName())
+                            .articlesTotal(tagDO.getArticlesTotal())
                             .build())
                     .collect(Collectors.toList());
         }

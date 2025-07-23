@@ -1,6 +1,7 @@
 package cn.hjblogs.hjblogs.admin.event.subscriber;
 
 import cn.hjblogs.hjblogs.admin.event.UpdateArticleEvent;
+import cn.hjblogs.hjblogs.admin.service.AdminStatisticsService;
 import cn.hjblogs.hjblogs.common.constant.Constants;
 import cn.hjblogs.hjblogs.common.domain.dos.ArticleContentDO;
 import cn.hjblogs.hjblogs.common.domain.dos.ArticleDO;
@@ -34,6 +35,9 @@ public class UpdateArticleSubscriber{
     @Autowired
     private ArticleContentMapper articleContentMapper;
 
+    @Autowired
+    private AdminStatisticsService statisticsService;
+
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT) // 事务提交后触发
     @Async("threadPoolTaskExecutor")
     public void handlePublishEvent(UpdateArticleEvent event) {
@@ -65,5 +69,13 @@ public class UpdateArticleSubscriber{
         long count = luceneHelper.updateDocument(ArticleIndex.NAME, document, condition);
 
         log.info("==> 更新文章对应 Lucene 文档结束，articleId: {}，受影响行数: {}", articleId, count);
+
+        // 重新统计各分类下文章总数
+        statisticsService.statisticsCategoryArticleTotal();
+        log.info("==> 重新统计各分类下文章总数");
+
+        // 重新统计各标签下文章总数
+        statisticsService.statisticsTagArticleTotal();
+        log.info("==> 重新统计各标签下文章总数");
     }
 }

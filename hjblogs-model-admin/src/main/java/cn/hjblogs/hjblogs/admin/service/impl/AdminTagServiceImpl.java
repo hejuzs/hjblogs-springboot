@@ -95,6 +95,7 @@ public class AdminTagServiceImpl extends ServiceImpl<TagMapper, TagDO> implement
                     .id(tagDO.getId())
                     .name(tagDO.getName())
                     .createTime(tagDO.getCreateTime())
+                    .articlesTotal(tagDO.getArticlesTotal())
                     .build()).collect(Collectors.toList());
         }
 

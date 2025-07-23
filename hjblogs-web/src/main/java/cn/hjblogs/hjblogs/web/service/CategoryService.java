@@ -2,6 +2,7 @@ package cn.hjblogs.hjblogs.web.service;
 
 import cn.hjblogs.hjblogs.common.utils.Response;
 import cn.hjblogs.hjblogs.web.model.vo.category.FindCategoryArticlePageListReqVO;
+import cn.hjblogs.hjblogs.web.model.vo.category.FindCategoryListReqVO;
 
 /**
  * @author JUHE
@@ -12,7 +13,7 @@ public interface CategoryService {
      * 获取分类列表
      * @return
      */
-    Response findCategoryList();
+    Response findCategoryList(FindCategoryListReqVO findCategoryListReqVO);
 
 
     /**

@@ -72,7 +72,12 @@ public class AdminCategoryServiceImpl implements AdminCategoryService {
         return Response.success();
     }
 
-
+    /**
+     * 分类分页数据查询
+     *
+     * @param findCategoryPageListReqVO
+     * @return
+     */
     @Override
     public PageResponse findCategoryList(FindCategoryPageListReqVO findCategoryPageListReqVO) {
         // 获取当前页、以及每页需要展示的数据数量
@@ -108,6 +113,7 @@ public class AdminCategoryServiceImpl implements AdminCategoryService {
                             .id(categoryDO.getId())
                             .name(categoryDO.getName())
                             .createTime(categoryDO.getCreateTime())
+                            .articlesTotal(categoryDO.getArticlesTotal())
                             .build())
                     .collect(Collectors.toList());
         }

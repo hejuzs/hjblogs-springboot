@@ -13,9 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FindCategoryListRspVO {
-    private Long id;
-    private String name;
-    private Integer articlesTotal;
-}
+public class FindCategoryListReqVO {
 
+    /**
+     * 展示数量
+     */
+    private Long size;
+
+}
