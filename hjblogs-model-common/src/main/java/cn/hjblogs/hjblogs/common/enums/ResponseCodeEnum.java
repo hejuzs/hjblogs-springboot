@@ -47,6 +47,10 @@ public enum ResponseCodeEnum implements BaseExceptionInterface {
     CATEGORY_CAN_NOT_DELETE("20011", "该分类下包含文章，请先删除对应文章，才能删除！"),
 
 
+    // 知识库相关异常
+    WIKI_NOT_FOUND("20013", "该知识库不存在"),
+
+
 
     ;
 

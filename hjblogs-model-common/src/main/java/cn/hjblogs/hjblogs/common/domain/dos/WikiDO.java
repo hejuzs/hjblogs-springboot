@@ -18,8 +18,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@TableName("t_article")
-public class ArticleDO {
+@TableName("t_wiki")
+public class WikiDO {
 
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -36,10 +36,7 @@ public class ArticleDO {
 
     private Boolean isDeleted;
 
-    private Long readNum;
-
     private Integer weight;
 
-    private Integer type;
+    private Boolean isPublish;
 }
-

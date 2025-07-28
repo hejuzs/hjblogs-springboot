@@ -1,4 +1,4 @@
-package cn.hjblogs.hjblogs.admin.model.vo.article;
+package cn.hjblogs.hjblogs.admin.model.vo.wiki;
 
 import cn.hjblogs.hjblogs.common.model.BasePageQuery;
 import io.swagger.annotations.ApiModel;
@@ -17,11 +17,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ApiModel(value = "查询文章分页数据入参 VO")
-public class FindArticlePageListReqVO extends BasePageQuery {
+@ApiModel(value = "查询知识库分页数据入参 VO")
+public class FindWikiPageListReqVO extends BasePageQuery {
 
     /**
-     * 文章标题
+     * 知识库标题
      */
     private String title;
 
@@ -35,10 +35,4 @@ public class FindArticlePageListReqVO extends BasePageQuery {
      */
     private LocalDate endDate;
 
-    /**
-     * 文章类型
-     */
-    private Integer type;
-
 }
-
