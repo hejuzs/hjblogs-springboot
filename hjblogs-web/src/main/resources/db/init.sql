@@ -172,3 +172,97 @@ INSERT INTO `weblog`.`t_user` (`id`, `username`, `password`, `create_time`, `upd
 INSERT INTO `weblog`.`t_user_role` (`id`, `username`, `role`, `create_time`) VALUES (1, 'hejuzs', 'ROLE_ADMIN', '2025-07-21 01:21:15');
 INSERT INTO `weblog`.`t_user_role` (`id`, `username`, `role`, `create_time`) VALUES (2, 'test', 'ROLE_VISITOR', '2025-07-21 01:23:33');
 INSERT INTO `weblog`.`t_blog_settings` (`id`, `logo`, `name`, `author`, `introduction`, `avatar`, `github_homepage`, `csdn_homepage`, `gitee_homepage`, `zhihu_homepage`) VALUES (1, 'https://img.quanxiaoha.com/quanxiaoha/f97361c0429d4bb1bc276ab835843065.jpg', '犬小哈的博客', '犬小哈', '平安喜乐test', 'https://img.quanxiaoha.com/quanxiaoha/f97361c0429d4bb1bc276ab835843065.jpg', 'https://www.quanxiaoha.com', 'https://www.quanxiaoha.com', 'https://www.quanxiaoha.com', 'https://www.quanxiaoha.com');
+
+
+-- 二期
+
+
+alter table t_category add column articles_total int(11) NOT NULL DEFAULT '0' COMMENT '此分类下文章总数';
+alter table t_tag add column articles_total int(11) NOT NULL DEFAULT '0' COMMENT '此标签下文章总数';
+
+alter table t_article add column `weight` int(6) unsigned NOT NULL DEFAULT '0' COMMENT '文章权重，用于是否置顶（0: 未置顶；>0: 参与置顶，权重值越高越靠前）';
+
+
+CREATE TABLE `t_wiki` (
+                          `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+                          `title` varchar(120) NOT NULL DEFAULT '' COMMENT '标题',
+                          `cover` varchar(120) NOT NULL DEFAULT '' COMMENT '封面',
+                          `summary` varchar(160) DEFAULT '' COMMENT '摘要',
+                          `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                          `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后一次更新时间',
+                          `is_deleted` tinyint(2) NOT NULL DEFAULT '0' COMMENT '删除标志位：0：未删除 1：已删除',
+                          `weight` int(6) unsigned NOT NULL DEFAULT '0' COMMENT '权重，用于是否置顶（0: 未置顶；>0: 参与置顶，权重值越高越靠前）',
+                          `is_publish` tinyint(2) NOT NULL DEFAULT '1' COMMENT '是否发布：0：未发布 1：已发布',
+                          PRIMARY KEY (`id`) USING BTREE,
+                          KEY `idx_create_time` (`create_time`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='知识库表';
+
+
+CREATE TABLE `t_wiki_catalog` (
+                                  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+                                  `wiki_id` bigint(20) unsigned NOT NULL COMMENT '知识库id',
+                                  `article_id` bigint(20) unsigned DEFAULT NULL COMMENT '文章id',
+                                  `title` text NOT NULL COMMENT '标题',
+                                  `level` tinyint(2) NOT NULL DEFAULT '1' COMMENT '目录层级',
+                                  `parent_id` bigint(20) unsigned DEFAULT NULL COMMENT '父目录id',
+                                  `sort` tinyint(2) unsigned NOT NULL DEFAULT '1' COMMENT '排序',
+                                  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                                  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后一次更新时间',
+                                  `is_deleted` tinyint(2) NOT NULL DEFAULT '0' COMMENT '删除标志位：0：未删除 1：已删除',
+                                  PRIMARY KEY (`id`) USING BTREE,
+                                  UNIQUE KEY `uk_article_id` (`article_id`) USING BTREE,
+                                  KEY `idx_sort` (`sort`) USING BTREE,
+                                  KEY `idx_wiki_id` (`wiki_id`) USING BTREE,
+                                  KEY `idx_parent_id` (`parent_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='知识库目录表';
+
+
+
+
+alter table t_article add column `type` tinyint(2) NOT NULL DEFAULT '1' COMMENT '文章类型 - 1：普通文章，2：收录于知识库';
+
+
+CREATE TABLE `t_comment` (
+                             `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+                             `content` varchar(120) NOT NULL DEFAULT '' COMMENT '评论内容',
+                             `avatar` varchar(160) DEFAULT NULL COMMENT '头像',
+                             `nickname` varchar(60) NOT NULL DEFAULT '' COMMENT '昵称',
+                             `mail` varchar(60) NOT NULL DEFAULT '' COMMENT '邮箱',
+                             `website` varchar(60) DEFAULT NULL COMMENT '网站地址',
+                             `router_url` varchar(60) NOT NULL DEFAULT '' COMMENT '评论所属的路由',
+                             `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                             `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后一次更新时间',
+                             `is_deleted` tinyint(2) NOT NULL DEFAULT '0' COMMENT '删除标志位：0：未删除 1：已删除',
+                             `reply_comment_id` bigint(20) unsigned DEFAULT NULL COMMENT '回复的评论 ID',
+                             `parent_comment_id` bigint(20) unsigned DEFAULT NULL COMMENT '父评论 ID',
+                             `reason` varchar(300) DEFAULT '' COMMENT '原因描述',
+                             `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '1: 待审核；2：正常；3：审核未通过;',
+                             PRIMARY KEY (`id`) USING BTREE,
+                             KEY `idx_router_url` (`router_url`) USING BTREE,
+                             KEY `idx_create_time` (`create_time`) USING BTREE,
+                             KEY `idx_reply_comment_id` (`reply_comment_id`) USING BTREE,
+                             KEY `idx_parent_comment_id` (`parent_comment_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='评论表';
+
+
+alter table t_blog_settings add column `mail` varchar(60) DEFAULT '' COMMENT '博主邮箱地址';
+alter table t_blog_settings add column `is_comment_sensi_word_open` tinyint(2) NOT NULL DEFAULT '1' COMMENT '是否开启评论敏感词过滤, 0:不开启；1：开启';
+alter table t_blog_settings add column `is_comment_examine_open` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否开启评论审核, 0: 未开启；1：开启';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
