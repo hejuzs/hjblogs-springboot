@@ -12,7 +12,7 @@ spring:
     # 数据库连接信息
     url: jdbc:mysql://172.17.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
-    password: 123456
+    password: lly1314520@
     hikari: # 数据库连接池使用 Hikari
       minimum-idle: 5 # 连接池中最小空闲连接数
       maximum-pool-size: 20 # 连接池中允许的最大连接数

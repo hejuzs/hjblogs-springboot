@@ -22,5 +22,8 @@ minio:
   accessKey: lly1314520@
   secretKey: lly1314520@
   bucketName: weblog
+# 奶思猫 API 密钥(替换为你自己的)
+api-key: m4K5fDZoMSYBjzeYeg6lt4oV42
+
 
 

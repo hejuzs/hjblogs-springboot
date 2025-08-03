@@ -51,6 +51,10 @@ public enum ResponseCodeEnum implements BaseExceptionInterface {
     WIKI_NOT_FOUND("20013", "该知识库不存在"),
 
 
+    // 评论相关异常
+    NOT_QQ_NUMBER("20014", "QQ 号格式不正确"),
+
+
 
     ;
 
